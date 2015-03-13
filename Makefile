@@ -19,19 +19,19 @@ vundle_install: vundle
 symlinks: backup
 	@ln -s $(VIMI_DIR)/$(VIMRC) ~/$(VIMRC) && \
 	ln -s $(VIMI_DIR)/$(DOT_VIM) ~/$(DOT_VIM) && \
-	echo "Create symlinks:\n~/$(VIMRC) -> $(VIMI_DIR)/$(VIMRC)\n~/$(DOT_VIM) -> $(VIMI_DIR)/$(DOT_VIM)\n"
+	echo "\nCreate symlinks:\n~/$(VIMRC) -> $(VIMI_DIR)/$(VIMRC)\n~/$(DOT_VIM) -> $(VIMI_DIR)/$(DOT_VIM)\n"
 
 backup: remove_prev_backup
 	@test ! -e ~/$(DOT_VIM) || \
 		(\
 		mv ~/$(DOT_VIM) ~/$(DOT_VIM)$(BACKUP_PREFIX); \
-		echo "Vimi makes backup of your current ~/$(DOT_VIM) directory to ~/$(DOT_VIM)$(BACKUP_PREFIX)\n" \
+		echo "Vimc makes backup of your current ~/$(DOT_VIM) directory to ~/$(DOT_VIM)$(BACKUP_PREFIX)" \
 		)
 
 	@test ! -e ~/.vimrc || \
 		( \
 		mv ~/$(VIMRC) ~/$(VIMRC)$(BACKUP_PREFIX); \
-		echo "Vimi makes backup of your current ~/$(VIMRC) to ~/$(VIMRC)$(BACKUP_PREFIX)\n" \
+		echo "Vimc makes backup of your current ~/$(VIMRC) to ~/$(VIMRC)$(BACKUP_PREFIX)\n" \
 		)
 
 remove_prev_backup:
@@ -41,7 +41,7 @@ remove_prev_backup:
 	@test ! -e ~/$(VIMRC)$(BACKUP_PREFIX) || \
 	rm -f ~/$(VIMRC)$(BACKUP_PREFIX)
 
-vundle: 
+vundle:
 	@test ! -e $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) || \
 	rm -rf $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR)
 
