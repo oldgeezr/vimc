@@ -1,42 +1,28 @@
-" Thanks to Arnstein!
-
 set nocompatible
 filetype off
 
-" Setting up Vundle - the vim plugin manager
-let installVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    let installVundle=0
-endif
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'gmarik/vundle'
-"Plugin 'Syntastic' "Syntax checker
-Plugin 'altercation/vim-colors-solarized' "Colorscheme
-"Plugin 'https://github.com/tpope/vim-fugitive' "Git + Vim = true
-"Plugin 'tpope/vim-sensible' "Sensible vim
-"Plugin 'scrooloose/syntastic' "Syntax checking
-"Plugin 'tpope/vim-surround' "Easy surrounding fixing
-"Plugin 'sjl/gundo.vim' "Visualization of Vim undo tree
-"Plugin 'vim-scripts/SQLComplete.vim' "SQL syntax
-"Plugin 'StanAngeloff/php.vim' "PHP syntax
-"Plugin 'nachumk/systemverilog.vim'
-"" SnipMate and dependencies
-"Plugin 'honza/vim-snippets'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-" Plugin 'Valloric/YouCompleteMe' "YouCompleteMe autocomplete
-"Plugin 'bling/vim-airline'
-if installVundle == 0
-    echo "Installing plugins, please ignore key map error messages"
-    :PluginInstall
-endif
-call vundle#end()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vimc/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/Vundle.vim'
+Bundle 'altercation/vim-colors-solarized'
+
+" my Bundles
+" Bundle 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Bundle 'L9'
+" Git plugin not hosted on GitHub
+" Bundle 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Bundle 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Bundle 'user/L9', {'name': 'newL9'}
+
 filetype plugin indent on
 set nocp
 
@@ -45,16 +31,13 @@ if has("syntax")
   syntax on
 endif
 
-" Airline theme
-let g:airline_theme='solarized'
-
 " Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
 
-" Auto read when a file is changed from the outside
+  " Auto read when a file is changed from the outside
 set autoread
 
 " Turn on the WiLd menu
@@ -85,7 +68,7 @@ set t_vb=
 set tm=500
 
 " Set text width for Latex
-set tw=80
+" set tw=80
 
 " Wrap lines
 set wrap
@@ -120,9 +103,15 @@ set si
 syntax enable
 set term=screen-256color
 set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+
+if (match(system("ls ~/.vimc/.vim/bundle/ | grep vim-colors-solarized"), "vim-colors-solarized") != -1)
+  let g:airline_theme='solarized'
+  let g:solarized_termcolors=256
+  colorscheme solarized
+else
+  colorscheme darkblue
+endif
 
 " Atomatic removal of trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
