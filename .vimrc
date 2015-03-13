@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-if (match(system("ls ~/.vimc/.vim/bundle/ | grep vundle"), "vundle") != -1)
+if isdirectory($HOME . "/.vimc/.vim/bundle/vundle/")
   " set the runtime path to include Vundle and initialize
   set rtp+=~/.vimc/.vim/bundle/vundle
   call vundle#rc()
