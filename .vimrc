@@ -9,6 +9,7 @@ if isdirectory($HOME . "/.vimc/.vim/bundle/vundle/")
   " let Vundle manage Vundle
   Bundle 'gmarik/Vundle.vim'
   Bundle 'altercation/vim-colors-solarized'
+  Bundle 'nachumk/systemverilog.vim'
 endif
 
 filetype plugin indent on
