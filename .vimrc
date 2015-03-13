@@ -1,27 +1,15 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vimc/.vim/bundle/vundle
-call vundle#rc()
+if (match(system("ls ~/.vimc/.vim/bundle/ | grep vundle"), "vundle") != -1)
+  " set the runtime path to include Vundle and initialize
+  set rtp+=~/.vimc/.vim/bundle/vundle
+  call vundle#rc()
 
-" let Vundle manage Vundle
-Bundle 'gmarik/Vundle.vim'
-Bundle 'altercation/vim-colors-solarized'
-
-" my Bundles
-" Bundle 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Bundle 'L9'
-" Git plugin not hosted on GitHub
-" Bundle 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Bundle 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Bundle 'user/L9', {'name': 'newL9'}
+  " let Vundle manage Vundle
+  Bundle 'gmarik/Vundle.vim'
+  Bundle 'altercation/vim-colors-solarized'
+endif
 
 filetype plugin indent on
 set nocp
