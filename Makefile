@@ -1,6 +1,7 @@
 VIMI_DIR = ~/.vimc
 VIMRC = .vimrc
 VUNDLE_DIR = bundle/vundle
+SOLARIZED_DIR = bundle/vim-colors-solarized
 BACKUP_PREFIX = .vimi.bak
 DOT_VIM = .vim
 
@@ -41,10 +42,18 @@ remove-prev-backup:
 	@test ! -e ~/$(VIMRC)$(BACKUP_PREFIX) || \
 	rm -f ~/$(VIMRC)$(BACKUP_PREFIX)
 
-vundle:
+vundle: solarized
 	@test ! -e $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) || \
 	rm -rf $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR)
 
 	@echo "Clone Vundle from github.com..."
 	@git clone git://github.com/gmarik/vundle.git $(VIMI_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) > /dev/null
+	@echo "Done.\n"
+
+solarized:
+	@test ! -e $(VIMI_DIR)/$(DOT_VIM)/$(SOLARIZED_DIR) || \
+	rm -rf $(VIMI_DIR)/$(DOT_VIM)/$(SOLARIZED_DIR)
+
+	@echo "Clone Solarized colors from github.com..."
+	@git clone git://github.com/gmarik/vundle.git $(VIMI_DIR)/$(DOT_VIM)/$(SOLARIZED_DIR) > /dev/null
 	@echo "Done.\n"
