@@ -9,7 +9,6 @@ if isdirectory($HOME . "/.vimc/.vim/bundle/vundle/")
   " let Vundle manage Vundle
   Bundle 'gmarik/Vundle.vim'
   Bundle 'altercation/vim-colors-solarized'
-  Bundle 'nachumk/systemverilog.vim'
 endif
 
 filetype plugin indent on
@@ -94,7 +93,7 @@ set term=screen-256color
 set t_Co=256
 set background=dark
 
-if (match(system("ls ~/.vimc/.vim/bundle/ | grep vim-colors-solarized"), "vim-colors-solarized") != -1)
+if isdirectory($HOME . "/.vimc/.vim/bundle/vim-colors-solarized/")
   let g:airline_theme='solarized'
   let g:solarized_termcolors=256
   colorscheme solarized
