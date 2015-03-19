@@ -1,9 +1,12 @@
 set nocompatible
 filetype off
 
-if isdirectory($HOME . "/.vimc/.vim/bundle/vundle/")
+let VUNDLE_DIR=$PWD . "/.vim/bundle/vundle/"
+let SOLARIZED_DIR=$PWD . "/.vim/bundle/vim-colors-solarized/"
+
+if isdirectory(VUNDLE_DIR)
   " set the runtime path to include Vundle and initialize
-  set rtp+=~/.vimc/.vim/bundle/vundle
+  set rtp+=~/.vim/bundle/vundle
   call vundle#rc()
 
   " let Vundle manage Vundle
@@ -94,7 +97,7 @@ set term=screen-256color
 set t_Co=256
 set background=dark
 
-if isdirectory($HOME . "/.vimc/.vim/bundle/vim-colors-solarized/")
+if isdirectory(SOLARIZED_DIR)
   let g:airline_theme='solarized'
   let g:solarized_termcolors=256
   colorscheme solarized
