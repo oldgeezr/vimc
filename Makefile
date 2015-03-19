@@ -3,11 +3,15 @@ VIMRC = .vimrc
 VUNDLE_DIR = bundle/vundle
 BACKUP_PREFIX = .vimi.bak
 DOT_VIM = .vim
+YCM_INSTALL = bundle/YouCompleteMe/./install.sh
+
+ycm_install:
+	$(VIMC_DIR)/$(DOT_VIM)/$(YCM_INSTALL) --clang-completer
 
 simple: echo_start symlinks
 	@echo "\nVimc successfully installed."
 
-full: echo_start symlinks vundle_install
+full: echo_start symlinks vundle_install ycm_install
 	@echo "\nVimc successfully installed."
 
 echo_start:

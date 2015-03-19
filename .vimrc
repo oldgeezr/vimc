@@ -84,7 +84,7 @@ set guioptions+=a
 " Proper tab indent
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
 
 " Auto indent
 set ai
