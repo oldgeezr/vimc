@@ -13,6 +13,7 @@ if isdirectory(VUNDLE_DIR)
   Bundle 'gmarik/Vundle.vim'
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'nachumk/systemverilog.vim'
+  Bundle 'Valloric/YouCompleteMe'
 endif
 
 filetype plugin indent on
