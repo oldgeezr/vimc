@@ -7,7 +7,7 @@ DOT_VIM = .vim
 simple: echo_start symlinks
 	@echo "\nVimc successfully installed."
 
-full: echo_start vundle_install symlinks
+full: echo_start symlinks vundle_install
 	@echo "\nVimc successfully installed."
 
 echo_start:
