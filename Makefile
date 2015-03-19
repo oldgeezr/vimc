@@ -31,7 +31,6 @@ backup: remove_prev_backup
 		mv ~/$(DOT_VIM) ~/$(DOT_VIM)$(BACKUP_PREFIX); \
 		echo "Vimc makes backup of your current ~/$(DOT_VIM) directory to ~/$(DOT_VIM)$(BACKUP_PREFIX)" \
 		)
-
 	@test ! -e ~/.vimrc || \
 		( \
 		mv ~/$(VIMRC) ~/$(VIMRC)$(BACKUP_PREFIX); \
@@ -41,14 +40,12 @@ backup: remove_prev_backup
 remove_prev_backup:
 	@test ! -e ~/$(DOT_VIM)$(BACKUP_PREFIX) || \
 	rm -fr ~/$(DOT_VIM)$(BACKUP_PREFIX)
-
 	@test ! -e ~/$(VIMRC)$(BACKUP_PREFIX) || \
 	rm -f ~/$(VIMRC)$(BACKUP_PREFIX)
 
 vundle:
 	@test ! -e $(VIMC_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) || \
 	rm -rf $(VIMC_DIR)/$(DOT_VIM)/$(VUNDLE_DIR)
-
 	@echo "Clone Vundle from github.com..."
 	@git clone git://github.com/gmarik/vundle.git $(VIMC_DIR)/$(DOT_VIM)/$(VUNDLE_DIR) > /dev/null
 	@echo "Done.\n"
