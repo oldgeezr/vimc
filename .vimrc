@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
 
-let VUNDLE_DIR=$PWD . "/.vim/bundle/vundle/"
-let SOLARIZED_DIR=$PWD . "/.vim/bundle/vim-colors-solarized/"
+let VUNDLE_DIR=$HOME . "/.vim/bundle/vundle/"
+let SOLARIZED_DIR=$HOME . "/.vim/bundle/vim-colors-solarized/"
 
 if isdirectory(VUNDLE_DIR)
   " set the runtime path to include Vundle and initialize
@@ -13,7 +13,7 @@ if isdirectory(VUNDLE_DIR)
   Bundle 'gmarik/Vundle.vim'
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'nachumk/systemverilog.vim'
-  Bundle 'Valloric/YouCompleteMe'
+  " Bundle 'Valloric/YouCompleteMe'
 endif
 
 filetype plugin indent on
