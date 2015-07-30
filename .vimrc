@@ -36,6 +36,9 @@ set autoread
 " Turn on the WiLd menu
 set wildmenu
 
+" Turn on highlighting of cursorline
+set cursorline
+
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l,[,]
@@ -84,7 +87,7 @@ set guioptions+=a
 " Proper tab indent
 set tabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 " Auto indent
 set ai
@@ -94,7 +97,7 @@ set si
 
 " Colorscheme and syntax highlighting
 syntax enable
-set term=screen-256color
+" set term=screen-256color
 set t_Co=256
 set background=dark
 
